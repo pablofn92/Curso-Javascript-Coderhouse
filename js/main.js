@@ -1,29 +1,39 @@
-// Simulador: control de stock tienda
-const productosEnStock = ["Shampoo", "Acondicionador", "Desengrasante", "Rollo de cocina", "Desinfectante", "Lavandina"];
-
-productosEnStock.push("Escoba");
-productosEnStock.unshift("Limpia vidrios");
-
-const productoAgotado = productosEnStock.pop();
-console.log(`Se ha eliminado el elemento: ${productoAgotado}`);
-
-const buscado = prompt("¿Qué producto querés buscar?");
-
-if (productosEnStock.includes(buscado)) {
-  const posicion = productosEnStock.indexOf(buscado);
-  console.log(`✅ "${buscado}" está en stock, en la posición ${posicion}`);
-} else {
-  console.log(`❌ "${buscado}" no está en stock`);
-}
-
-productosEnStock.splice(5, 1, "Detergente");
-
-function listarStock(lista) {
-  console.log("Stock disponible:");
-  for (const producto of lista) {
-    console.log(`Producto: ${producto}`);
+// Simulador: Lista de productos y sus respectivos precios de venta.
+class Producto {
+  constructor(id, nombre, precio, categoria) {
+    this.id = id;
+    this.nombre = nombre.toLowerCase();
+    this.precio = parseFloat(precio);
+    this.categoria = categoria.toLowerCase();
   }
-  console.log(`Total: ${lista.length} productos`);
+
+  // Método para sumar el IVA al precio de lista del producto y posteriormente aplicar un descuento para obtener el precio final del mismo.
+  sumarIva() {
+    this.precio *= 1.21;
+  }
+  
+  aplicarDescuento(descuento) {
+    this.precio *= 1 - descuento / 100;
+  }
+
+}
+const productos = [];
+
+  productos.push(new Producto(0, "Shampoo", 3000, "Higiene"));
+  productos.push(new Producto(1, "Acondicionador", 3500, "Higiene"));
+  productos.push(new Producto(2, "Desengrasante", 2000, "Limpieza"));
+  productos.push(new Producto(3, "Rollo de cocina", 1800, "Limpieza"));
+  productos.push(new Producto(4, "Desinfectante", 1500, "Limpieza"));
+
+console.log('Precio de lista:');
+console.table(productos);
+
+// Aplicar IVA y descuento a cada producto
+for (const producto of productos) {
+  producto.sumarIva();
+  producto.aplicarDescuento(10);
 }
 
-listarStock(productosEnStock);
+// Mostrar el precio final de cada producto
+console.log('Precio final (con IVA y descuento aplicado):');
+console.table(productos);
