@@ -43,8 +43,13 @@ console.table(productos);
 // Se aplica lo aprendido en clase 6
 
 // Busco un producto por nombre
-const buscado = productos.find(producto => producto.nombre === "desengrasante");
-console.log("Producto buscado:", buscado);
+const nombreBuscado = prompt("Ingrese el nombre del producto a buscar:").toLowerCase();
+const buscado = productos.find(producto => producto.nombre === nombreBuscado);
+if (!buscado) {
+  console.log("Producto no encontrado.");
+} else {
+  console.log("Producto buscado:", buscado);
+}
 
 // Filtro los productos que están en stock
 const disponibles = productos.filter(producto => producto.stock > 0);
