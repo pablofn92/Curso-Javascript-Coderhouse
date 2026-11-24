@@ -1,12 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de E-commerce - Javascript | Coderhouse - DOM y Eventos/Web Storage</title>
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/main.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-    <h1>Clases de JavaScript - Simulador de Lista de productos y sus respectivos precios de venta.</h1>
-</body>
+  </head>
+
+  <body>
+    <header>
+      <h1 id="titulo">Mi Simulador de E-commerce</h1>
+      <nav>
+        <ul>
+          <li><a href="#" class="link">Inicio</a></li>
+          <li><a href="#productos" class="link">Productos</a></li>
+          <li><a href="./pages/carrito.html" class="link">Carrito</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Productos</h2>
+    <form id="form-busqueda">
+      <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
+      <button type="submit" id="btn-buscar">Buscar</button>
+    </form>
+
+      <section id="productos" class="productos"></section>
+
+      <section>
+        <h3>Agregar producto</h3>
+        <form id="form-agregar-producto" class="form-agregar-producto">
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre del producto"
+            id="input-nombre"
+          />
+          <input
+            type="number"
+            name="precio"
+            placeholder="Precio del producto"
+            id="input-precio"
+          />
+          <input
+            type="text"
+            name="imagen"
+            placeholder="URL de la imagen del producto"
+            id="input-imagen"
+          />
+          <input
+            type="text"
+            name="descripcion"
+            placeholder="Descripcion del producto"
+            id="input-descripcion"
+          />
+          <input
+            type="number"
+            name="stock"
+            placeholder="Stock del producto"
+            id="input-stock"
+          />
+          <input
+            type="text"
+            name="categoria"
+            placeholder="Categoría del producto"
+            id="input-categoria"
+          />
+          <input type="submit" value="Agregar producto" />
+        </form>
+      </section>
+
+      <section class="carrito" id="carrito"></section>
+    </main>
+    <footer>
+      <span>Simulador de E-commerce - Pablo Napoli &copy;2026</span>
+    </footer>
+  </body>
 </html>
